@@ -11,17 +11,17 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('admin.orders.index') }}" class="nav-link">
                 <i class="nav-icon fas fa-solid fa-comment-dollar"></i>
                 <p>
                     Заказы
                     <span class="right badge badge-primary">2</span>
-                    <span class="right badge badge-danger">12</span>
+                    <span class="right badge badge-danger">22</span>
                 </p>
             </a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('admin.products.index') }}" class="nav-link">
                 <i class="nav-icon fas fa-solid fa-seedling"></i>
                 <p>
                     Букеты
@@ -30,7 +30,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="{{ route('admin.profiles.index') }}" class="nav-link">
 
                 <i class="nav-icon fas fa-solid fa-users"></i>
                 <p>

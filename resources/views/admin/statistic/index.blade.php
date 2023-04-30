@@ -1,5 +1,5 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class="">adadadadad</div>
+    <h1>MONEY!</h1>
 @endsection

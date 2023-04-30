@@ -5,10 +5,10 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>SoapRosesRND</title>
     @vite('resources/css/app.css')
 </head>
-<body class="bg-background">
+<body class="bg-background flex flex-col min-h-screen">
 
 <header>
     <nav class="bg-main font-montserratAlter py-3 items-center">
@@ -30,9 +30,9 @@
                     <a href="#" class="block items-center pr-4 text-lightText hover:text-selectedHeaderText hover:underline hover:underline-offset-4 hover:decoration-3 hover:decoration-selectedHeaderText transition duration-500">Доставка</a>
                 </li>
                 <li>
-{{--                    <a href="">--}}
-{{--                        <img src="{{ Vite::asset('resources/images/cart.svg') }}"  class="object-contain h-12 w-12" alt="Корзина">--}}
-{{--                    </a>--}}
+                    {{--                    <a href="">--}}
+                    {{--                        <img src="{{ Vite::asset('resources/images/cart.svg') }}"  class="object-contain h-12 w-12" alt="Корзина">--}}
+                    {{--                    </a>--}}
                 </li>
             </ul>
             <div class="text-center items-center">

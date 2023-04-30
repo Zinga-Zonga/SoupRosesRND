@@ -11,4 +11,6 @@ class Profile extends Model
     use HasFactory;
     use SoftDeletes;
     protected $guarded = false;
+
+
 }

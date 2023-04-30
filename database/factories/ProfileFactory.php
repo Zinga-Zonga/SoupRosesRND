@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +19,11 @@ class ProfileFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'phone_number' => $this->faker->phoneNumber(),
+            'address' => $this->faker->streetAddress(),
+            'total_bought' => random_int(0,10000),
+            'role_id' => Role::get()->random()->id,
+            'user_id' => User::get()->random()->id
         ];
     }
 }

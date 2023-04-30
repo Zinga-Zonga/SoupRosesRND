@@ -27,6 +27,10 @@ return new class extends Migration
             $table->index('delivery_type_id','order_delivery_type_idx');
             $table->foreign('delivery_type_id','order_delivery_type_fk')->on('delivery_types')->references('id');
 
+            $table->unsignedBigInteger('profile_id');
+            $table->index('profile_id','order_profile_id_idx');
+            $table->foreign('profile_id','order_profile_id_fk')->on('profiles')->references('id');
+
             $table->timestamps();
             $table->softDeletes();
         });

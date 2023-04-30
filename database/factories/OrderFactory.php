@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\DeliveryType;
+use App\Models\OrderState;
+use App\Models\Profile;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +20,13 @@ class OrderFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'date' => $this->faker->date(),
+            'time' => $this->faker->time(),
+            'state_id' => OrderState::get()->random()->id,
+            'price' => $this->faker->randomDigit(),
+            'arrival_address' => $this->faker->address(),
+            'profile_id' => Profile::get()->random()->id,
+            'delivery_type_id' => DeliveryType::get()->random()->id
         ];
     }
 }

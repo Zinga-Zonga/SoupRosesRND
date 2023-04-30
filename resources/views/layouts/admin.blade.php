@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AdminLTE 3 | Dashboard 3</title>
-    <base href="{{ asset('/') }}">
+
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href={{asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback')}}>
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <link rel="stylesheet" href={{asset('plugins/fontawesome-free/css/all.min.css')}}>
     <!-- IonIcons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href={{asset('https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}>
     <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <link rel="stylesheet" href={{asset('dist/css/adminlte.min.css')}}>
 </head>
 <!--
 `body` tag options:
@@ -33,7 +33,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index3.html" class="nav-link">Home</a>
+                <a href="#" class="nav-link">Home</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="#" class="nav-link">Contact</a>
@@ -74,7 +74,7 @@
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                            <img src="{{asset('dist/img/user1-128x128.jpg')}}" alt="User Avatar" class="img-size-50 mr-3 img-circle">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     Brad Diesel
@@ -90,7 +90,7 @@
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                            <img src="{{asset('dist/img/user8-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     John Pierce
@@ -106,7 +106,7 @@
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                            <img src="{{asset('dist/img/user3-128x128.jpg')}}" alt="User Avatar" class="img-size-50 img-circle mr-3">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     Nora Silvester
@@ -167,7 +167,7 @@
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
         <a href="#" class="brand-link text-center">
-{{--            <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">--}}
+{{--            <img src={{asset('222)}}"dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">--}}
             <span class="brand-text margin-auto align-items-center font-weight-bold">SoupRoses</span>
         </a>
 
@@ -176,7 +176,7 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                    <img src="{{asset('dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
                     <a href="#" class="d-block">Alexander Pierce</a>
@@ -225,103 +225,9 @@
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
-{{--                <div class="row">--}}
-{{--                    <div class="col-12">--}}
-{{--                        <div class="card">--}}
-{{--                            <div class="card-header">--}}
-{{--                                <h3 class="card-title">Fixed Header Table</h3>--}}
-{{--                                <div class="card-tools">--}}
-{{--                                    <div class="input-group input-group-sm" style="width: 150px;">--}}
-{{--                                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">--}}
-{{--                                        <div class="input-group-append">--}}
-{{--                                            <button type="submit" class="btn btn-default">--}}
-{{--                                                <i class="fas fa-search"></i>--}}
-{{--                                            </button>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
 
-{{--                            <div class="card-body table-responsive p-0" style="height: 300px;">--}}
-{{--                                <table class="table table-head-fixed text-nowrap">--}}
-{{--                                    <thead>--}}
-{{--                                    <tr>--}}
-{{--                                        <th>ID</th>--}}
-{{--                                        <th>Заказчик</th>--}}
-{{--                                        <th>Дата</th>--}}
-{{--                                        <th>Время</th>--}}
-{{--                                        <th>Статус</th>--}}
-{{--                                        <th>Цена</th>--}}
-{{--                                        <th>Адрес</th>--}}
-{{--                                        <th>Доставка</th>--}}
-{{--                                    </tr>--}}
-{{--                                    </thead>--}}
-{{--                                    <tbody>--}}
-{{--                                    <tr>--}}
-{{--                                        <td>183</td>--}}
-{{--                                        <td>John Doe</td>--}}
-{{--                                        <td>11-7-2014</td>--}}
-{{--                                        <td><span class="tag tag-success">Approved</span></td>--}}
-{{--                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>--}}
-{{--                                    </tr>--}}
-{{--                                    <tr>--}}
-{{--                                        <td>219</td>--}}
-{{--                                        <td>Alexander Pierce</td>--}}
-{{--                                        <td>11-7-2014</td>--}}
-{{--                                        <td><span class="tag tag-warning">Pending</span></td>--}}
-{{--                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>--}}
-{{--                                    </tr>--}}
-{{--                                    <tr>--}}
-{{--                                        <td>657</td>--}}
-{{--                                        <td>Bob Doe</td>--}}
-{{--                                        <td>11-7-2014</td>--}}
-{{--                                        <td><span class="tag tag-primary">Approved</span></td>--}}
-{{--                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>--}}
-{{--                                    </tr>--}}
-{{--                                    <tr>--}}
-{{--                                        <td>175</td>--}}
-{{--                                        <td>Mike Doe</td>--}}
-{{--                                        <td>11-7-2014</td>--}}
-{{--                                        <td><span class="tag tag-danger">Denied</span></td>--}}
-{{--                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>--}}
-{{--                                    </tr>--}}
-{{--                                    <tr>--}}
-{{--                                        <td>134</td>--}}
-{{--                                        <td>Jim Doe</td>--}}
-{{--                                        <td>11-7-2014</td>--}}
-{{--                                        <td><span class="tag tag-success">Approved</span></td>--}}
-{{--                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>--}}
-{{--                                    </tr>--}}
-{{--                                    <tr>--}}
-{{--                                        <td>494</td>--}}
-{{--                                        <td>Victoria Doe</td>--}}
-{{--                                        <td>11-7-2014</td>--}}
-{{--                                        <td><span class="tag tag-warning">Pending</span></td>--}}
-{{--                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>--}}
-{{--                                    </tr>--}}
-{{--                                    <tr>--}}
-{{--                                        <td>832</td>--}}
-{{--                                        <td>Michael Doe</td>--}}
-{{--                                        <td>11-7-2014</td>--}}
-{{--                                        <td><span class="tag tag-primary">Approved</span></td>--}}
-{{--                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>--}}
-{{--                                    </tr>--}}
-{{--                                    <tr>--}}
-{{--                                        <td>982</td>--}}
-{{--                                        <td>Rocky Doe</td>--}}
-{{--                                        <td>11-7-2014</td>--}}
-{{--                                        <td><span class="tag tag-danger">Denied</span></td>--}}
-{{--                                        <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>--}}
-{{--                                    </tr>--}}
-{{--                                    </tbody>--}}
-{{--                                </table>--}}
-{{--                            </div>--}}
+                    @yield('content')
 
-{{--                        </div>--}}
-
-{{--                    </div>--}}
-{{--                </div>--}}
-                @yield('content')
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
@@ -346,14 +252,14 @@
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
+<script src={{asset('plugins/jquery/jquery.min.js')}}></script>
 <!-- Bootstrap -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src={{asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}></script>
 <!-- AdminLTE -->
-<script src="dist/js/adminlte.js"></script>
+<script src={{asset('dist/js/adminlte.js')}}></script>
 
 <!-- OPTIONAL SCRIPTS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
+<script src={{asset('plugins/chart.js/Chart.min.js')}}></script>
 
 </body>
 </html>

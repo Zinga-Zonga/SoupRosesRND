@@ -24,6 +24,7 @@ return new class extends Migration
             $table->foreign('product_id','order_product_product_fk')->on('products')->references('id');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
