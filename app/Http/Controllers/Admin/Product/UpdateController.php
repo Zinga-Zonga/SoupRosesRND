@@ -16,7 +16,7 @@ class UpdateController extends Controller
            'title' => 'required|string',
            'description' => 'string',
            'price' => 'required|integer',
-           'image' => 'required|file'
+           'image' => 'file'
        ]);
        if(key_exists('image', $data) === true){
            $data['image'] = Storage::disk('public')->put('/images', $data['image']);

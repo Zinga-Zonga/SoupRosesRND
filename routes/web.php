@@ -24,6 +24,10 @@ Route::get('/', function () {
 Route::prefix('admin')->group(function () {
     Route::namespace('App\Http\Controllers\Admin\Profile')->group(function () {
         Route::get('/profiles', 'IndexController')->name('admin.profiles.index');
+        Route::get('/profiles/{profile}', 'ShowController')->name('admin.profiles.show');
+        Route::get('/profiles/{profile}/edit', 'EditController')->name('admin.profiles.edit');
+        Route::patch('/profiles/{profile}', 'UpdateController')->name('admin.profiles.update');
+        Route::delete('/profiles/{profile}', 'DeleteController')->name('admin.profiles.destroy');
     });
     Route::namespace('App\Http\Controllers\Admin\Product')->group(function () {
         Route::get('/products', 'IndexController')->name('admin.products.index');
@@ -35,8 +39,10 @@ Route::prefix('admin')->group(function () {
         Route::delete('/products/{product}', 'DeleteController')->name('admin.products.destroy');
     });
 
-    Route::namespace('App\Http\Controllers\Admin\Order')->group(function () {
+    Route::namespace('App\Http\Controllers\Admin\OrderProduct')->group(function () {
         Route::get('/orders', 'IndexController')->name('admin.orders.index');
+        Route::get('/orders/{orderProduct}/edit', 'EditController')->name('admin.orders.edit');
+        Route::patch('/orders/{orderProduct}', 'UpdateController')->name('admin.orders.update');
     });
 });
 

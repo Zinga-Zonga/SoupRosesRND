@@ -1,20 +1,24 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Order;
+namespace App\Http\Controllers\Admin\OrderProduct;
 
 use App\Http\Controllers\Controller;
 use App\Models\DeliveryType;
 use App\Models\Order;
 use App\Models\OrderProduct;
+
 use App\Models\OrderState;
 use App\Models\Product;
 use App\Models\Profile;
+use App\Models\Role;
 use App\Models\User;
 
 
-class IndexController extends Controller
+class EditController extends Controller
 {
-    public function __invoke(){
+    public function __invoke(OrderProduct $orderProduct)
+    {
+
         $profiles = Profile::all();
         $orders = Order::all();
         $ordersProducts = OrderProduct::all();
@@ -23,11 +27,6 @@ class IndexController extends Controller
         $deliveryTypes = DeliveryType::all();
         $users = User::all();
 
-        $readyForUseOrderProducts = $ordersProducts->sortBy('order_id')->groupBy('order_id');
-
-
-
-       return view('admin.orders.index', compact('profiles','orders','ordersProducts','products','orderStates','deliveryTypes','users','readyForUseOrderProducts'));
-
+        return view('admin.orders.edit', compact('orderProduct','ordersProducts','profiles','orders','products','orderStates','deliveryTypes','users'));
     }
 }

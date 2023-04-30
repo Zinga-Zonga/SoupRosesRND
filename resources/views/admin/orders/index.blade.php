@@ -27,7 +27,7 @@
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
-                                            aria-label="ID">ID Заказчика
+                                            aria-label="ID">ID Заказа
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
@@ -39,7 +39,7 @@
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
-                                            aria-label="Order ID">ID Заказа
+                                            aria-label="Order ID">ID Заказчика
                                         </th>
                                         <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1"
                                             colspan="1"
@@ -69,7 +69,9 @@
                                             </td>
                                             <td>
 
-                                                {{ $users->firstWhere('id', $profiles->firstWhere('id', $orders->firstWhere('id',$readyForUseOrderProductKey)->profile_id)->user_id)->id }}
+                                                @foreach($orders->where('id', $readyForUseOrderProductKey) as $order)
+                                                    {{ $order->id }}
+                                                @endforeach
                                             </td>
                                             <td>
                                                 {{ $users->firstWhere('id', $profiles->firstWhere('id', $orders->firstWhere('id',$readyForUseOrderProductKey)->profile_id)->user_id)->name }}
@@ -78,10 +80,7 @@
                                                 {{ $profiles->firstWhere('id', $orders->firstWhere('id',$readyForUseOrderProductKey)->profile_id)->phone_number }}
                                             </td>
                                             <td>
-                                                @foreach($orders->where('id', $readyForUseOrderProductKey) as $order)
-                                                    {{ $order->id }}
-                                                @endforeach
-
+                                                {{ $users->firstWhere('id', $profiles->firstWhere('id', $orders->firstWhere('id',$readyForUseOrderProductKey)->profile_id)->user_id)->id }}
                                             </td>
                                             <td>
                                                 @foreach($ordersProducts->where('order_id', $readyForUseOrderProductKey) as $orderProduct)
@@ -101,6 +100,13 @@
                                             </td>
                                             <td>
                                                 {{ $deliveryTypes->firstWhere('id', $orders->firstWhere('id', $orderProduct->order_id)->delivery_type_id)->name }}
+                                            </td>
+                                            <td>
+                                                <button type="button" class="btn btn-warning w-100 mt-1">
+                                                    <a  class="text-decoration-none text-reset" href="{{ route('admin.orders.edit', $ordersProducts->firstWhere('order_id', $readyForUseOrderProductKey)->id)  }}">
+                                                        Изменить статус
+                                                    </a>
+                                                </button>
                                             </td>
 
 

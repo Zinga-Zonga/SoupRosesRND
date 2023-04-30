@@ -37,6 +37,9 @@
                                 <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
                                     aria-label="Role">Роль
                                 </th>
+                                <th class="sorting" tabindex="0" aria-controls="example2" rowspan="1" colspan="1"
+                                    aria-label="Role">Действия
+                                </th>
                             </tr>
                             </thead>
                             <tbody>
@@ -47,8 +50,20 @@
                                      <td>{{ $profile->phone_number }}</td>
                                      <td>{{ $profile->address }}</td>
                                      <td>{{ $profile->total_bought }}</td>
-                                     <td>{{ ($roles->firstWhere('id', $profile->role_id))->name }}</td>
+                                     <td>{{ $roles->firstWhere('id', $users->firstWhere('id', $profile->user_id)->role_id)->name}}</td>
+                                     <td class="mx-auto">
+                                         <button type="button" class="btn btn-warning w-100 mt-1">
+                                             <a  class="text-decoration-none text-reset" href="{{ route('admin.profiles.edit', $profile->id) }}">
+                                                 Изменить
+                                             </a>
+                                         </button>
+                                         <form action="{{ route('admin.profiles.destroy', $profile->id) }}" method="POST">
+                                             {{method_field('DELETE')}}
+                                             @csrf
+                                             <button type="submit" class="btn btn-danger w-100 my-1">Удалить</button>
+                                         </form>
 
+                                     </td>
                                  </tr>
                              @endforeach
                             </tbody>

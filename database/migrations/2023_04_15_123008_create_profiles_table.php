@@ -16,9 +16,6 @@ return new class extends Migration {
             $table->string('address')->nullable();
             $table->integer('total_bought')->nullable();
 
-            $table->unsignedBigInteger('role_id');
-            $table->index('role_id', 'profile_role_idx');
-            $table->foreign('role_id', 'profile_role_fk')->on('roles')->references('id');
 
             $table->unsignedBigInteger('user_id');
             $table->index('user_id', 'profile_user_idx');
