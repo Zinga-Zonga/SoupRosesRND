@@ -18,16 +18,22 @@
             </a>
             <ul class="basis-8/12 px-4 flex flex-row items-center pt-1 text-lightText">
                 <li>
-                    <a href="#" class="block items-center pr-4 text-lightText hover:text-selectedHeaderText hover:underline hover:underline-offset-4 hover:decoration-3 hover:decoration-selectedHeaderText transition duration-500">Главная</a>
+                    <a href="#"
+                       class="block items-center pr-4 text-lightText hover:text-selectedHeaderText hover:underline hover:underline-offset-4 hover:decoration-3 hover:decoration-selectedHeaderText transition duration-500">Главная</a>
                 </li>
                 <li>
-                    <a href="#" class="block items-center pr-4 text-lightText hover:text-selectedHeaderText hover:underline hover:underline-offset-4 hover:decoration-3 hover:decoration-selectedHeaderText transition duration-500">Конструктор букетов</a>
+                    <a href="#"
+                       class="block items-center pr-4 text-lightText hover:text-selectedHeaderText hover:underline hover:underline-offset-4 hover:decoration-3 hover:decoration-selectedHeaderText transition duration-500">Конструктор
+                        букетов</a>
                 </li>
                 <li>
-                    <a href="#" class="block items-center pr-4 text-lightText hover:text-selectedHeaderText hover:underline hover:underline-offset-4 hover:decoration-3 hover:decoration-selectedHeaderText transition duration-500">Готовые букеты</a>
+                    <a href="#"
+                       class="block items-center pr-4 text-lightText hover:text-selectedHeaderText hover:underline hover:underline-offset-4 hover:decoration-3 hover:decoration-selectedHeaderText transition duration-500">Готовые
+                        букеты</a>
                 </li>
                 <li>
-                    <a href="#" class="block items-center pr-4 text-lightText hover:text-selectedHeaderText hover:underline hover:underline-offset-4 hover:decoration-3 hover:decoration-selectedHeaderText transition duration-500">Доставка</a>
+                    <a href="#"
+                       class="block items-center pr-4 text-lightText hover:text-selectedHeaderText hover:underline hover:underline-offset-4 hover:decoration-3 hover:decoration-selectedHeaderText transition duration-500">Доставка</a>
                 </li>
                 <li>
                     {{--                    <a href="">--}}
@@ -35,10 +41,71 @@
                     {{--                    </a>--}}
                 </li>
             </ul>
-            <div class="text-center items-center">
-                <button type="button" class="rounded-full text-sm bg-lightText font-montserrat font-medium text-center mx-2 py-1 px-1">Корзина</button>
-                <button type="button" class="rounded-full text-sm bg-lightText font-montserrat font-medium text-center mx-2 py-1 px-1">Профиль</button>
-                <button type="button" class="rounded-full text-sm bg-lightText font-montserrat font-medium text-center mx-2 py-1 px-1">Выход</button>
+            <div class="text-center flex flex-row items-center">
+
+
+                <button type="button"
+                        class="inline-flex bg-lightText items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md  hover: focus:outline-none transition ease-in-out duration-500">
+                    Корзина
+                </button>
+                <div class="hidden sm:flex sm:items-center sm:ml-6">
+                    @if(auth()->user() === null)
+                        <div>
+                            <div>
+                                <button
+                                    class="inline-flex bg-lightText items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md  hover: focus:outline-none transition ease-in-out duration-500"
+                                    type="submit">
+                                    <a href="{{route('login')}}">Войти</a>
+
+                                </button>
+                            </div>
+                        </div>
+                    @else
+                        <x-dropdown align="right" width="48">
+                            <x-slot name="trigger">
+                                <button
+                                    class="inline-flex bg-lightText items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md  hover: focus:outline-none transition ease-in-out duration-500">
+                                    <div>{{ Auth::user()->name }}</div>
+
+                                    <div class="ml-1">
+                                        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                             viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                  clip-rule="evenodd"/>
+                                        </svg>
+                                    </div>
+                                </button>
+                            </x-slot>
+
+                            <x-slot name="content">
+                                <x-dropdown-link :href="route('profile.edit')">
+                                    {{ __('Профиль') }}
+                                </x-dropdown-link>
+                                @if((int)auth()->user()->role_id === 2)
+
+                                    <x-dropdown-link :href="route('admin')">
+                                        {{ __('Админка') }}
+                                    </x-dropdown-link>
+                                @endif
+
+                                <!-- Authentication -->
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+
+                                    <x-dropdown-link :href="route('logout')"
+                                                     onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                        {{ __('Выход') }}
+                                    </x-dropdown-link>
+                                </form>
+                            </x-slot>
+                        </x-dropdown>
+
+                    @endif
+
+
+                </div>
             </div>
         </div>
 

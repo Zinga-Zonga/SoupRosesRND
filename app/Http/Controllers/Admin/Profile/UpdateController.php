@@ -14,13 +14,13 @@ class UpdateController extends Controller
     {
 
         $profileData = request()->validate([
-            'phone_number' => 'string',
-            'address' => 'string',
-            'total_bought' => 'integer',
+            'phone_number' => '',
+            'address' => '',
+            'total_bought' => '',
         ]);
 
         $userData = request()->validate([
-            'role_id' => 'exists:roles,id'
+            'role_id' => ''
         ]);
 
         $user = User::find($profile->user_id);

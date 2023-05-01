@@ -16,12 +16,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('main.index');
-})->name('index');
+Route::namespace('App\Http\Controllers\Main')->group(function (){
+    Route::get('/','IndexController')->name('index');
+    Route::get('/{product}','ShowController')->name('main.show');
+});
 
 
-Route::prefix('admin')->group(function () {
+
+Route::middleware(['auth','admin'])->prefix('admin')->group(function () {
+
+    Route::get('/admin', function () {
+        return view('layouts.admin');
+    })->name('admin');
+
     Route::namespace('App\Http\Controllers\Admin\Profile')->group(function () {
         Route::get('/profiles', 'IndexController')->name('admin.profiles.index');
         Route::get('/profiles/{profile}', 'ShowController')->name('admin.profiles.show');
@@ -45,13 +52,17 @@ Route::prefix('admin')->group(function () {
         Route::patch('/orders/{orderProduct}', 'UpdateController')->name('admin.orders.update');
     });
 });
+Route::get('/login', function () {
+    return view('auth.login');
+})->name('login');
+
+Route::get('/register', function () {
+    return view('auth.register');
+})->name('register');
 
 
-Route::get('/admin', function () {
-    return view('layouts.admin');
-})->name('admin');
 
-Route::get('/dashboard', [RegisteredUserController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

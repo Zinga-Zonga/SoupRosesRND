@@ -43,8 +43,14 @@
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Profile') }}
+                            {{ __('Профиль') }}
                         </x-dropdown-link>
+                        @if((int)auth()->user()->role_id === 2)
+
+                            <x-dropdown-link :href="route('profile.edit')">
+                                {{ __('Админка') }}
+                            </x-dropdown-link>
+                        @endif
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
@@ -53,7 +59,7 @@
                             <x-dropdown-link :href="route('logout')"
                                              onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                                {{ __('Log Out') }}
+                                {{ __('Выход') }}
                             </x-dropdown-link>
                         </form>
                     </x-slot>
