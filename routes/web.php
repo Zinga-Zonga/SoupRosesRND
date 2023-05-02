@@ -16,10 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::namespace('App\Http\Controllers\Main')->group(function (){
+
     Route::get('/','IndexController')->name('index');
-    Route::get('/{product}','ShowController')->name('main.show');
+    Route::get('/products/{product}','ShowController')->name('main.products.show');
+
+
 });
+
+
 
 
 
@@ -28,6 +35,7 @@ Route::middleware(['auth','admin'])->prefix('admin')->group(function () {
     Route::get('/admin', function () {
         return view('layouts.admin');
     })->name('admin');
+
 
     Route::namespace('App\Http\Controllers\Admin\Profile')->group(function () {
         Route::get('/profiles', 'IndexController')->name('admin.profiles.index');
@@ -52,13 +60,8 @@ Route::middleware(['auth','admin'])->prefix('admin')->group(function () {
         Route::patch('/orders/{orderProduct}', 'UpdateController')->name('admin.orders.update');
     });
 });
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
 
-Route::get('/register', function () {
-    return view('auth.register');
-})->name('register');
+
 
 
 
@@ -68,6 +71,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::namespace('App\Http\Controllers\Cart')->group(function () {
+        Route::get('/cart', 'IndexController')->name('cart.index');
+        Route::post('/cart', 'StoreController')->name('cart.store');
+        Route::post('/cartStore', 'MakeOrderController')->name('cart.makeOrder');
+    });
 });
 
 require __DIR__ . '/auth.php';

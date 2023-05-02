@@ -12,13 +12,15 @@
                 <div class="card-body">
                     <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap4">
                         <div class="row">
-                            <div class="col-sm-12 col-md-6"></div>
                             <div class="col-sm-12 col-md-6">
                                 <button type="button" class="btn btn-success  my-1">
                                     <a  class="text-decoration-none text-reset" href="{{ route('admin.products.create') }}">
                                         Добавить
                                     </a>
                                 </button>
+                            </div>
+                            <div class="col-sm-12 col-md-6">
+
                             </div>
                         </div>
                         <div class="row">

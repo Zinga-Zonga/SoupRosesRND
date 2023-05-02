@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Models\Profile;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
@@ -57,6 +58,10 @@ class RegisteredUserController extends Controller
 
             'user_id' => $user->id,
 
+        ]);
+        Cart::create([
+
+            'user_id' => $user->id,
         ]);
 
         Auth::login($user);

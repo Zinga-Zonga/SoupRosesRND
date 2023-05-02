@@ -13,23 +13,18 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
-            $table->time('time');
 
             $table->unsignedBigInteger('state_id');
             $table->index('state_id','order_state_idx');
-            $table->foreign('state_id','order_state_fk')->on('order_states')->references('id');
-
-            $table->integer('price');
-            $table->string('arrival_address');
+            $table->foreign('state_id','order_state_fk')->on('order_states')->references('id')->onDelete('cascade')->onUpdate('cascade');
 
             $table->unsignedBigInteger('delivery_type_id');
             $table->index('delivery_type_id','order_delivery_type_idx');
-            $table->foreign('delivery_type_id','order_delivery_type_fk')->on('delivery_types')->references('id');
+            $table->foreign('delivery_type_id','order_delivery_type_fk')->on('delivery_types')->references('id')->onDelete('cascade')->onUpdate('cascade');
 
             $table->unsignedBigInteger('profile_id');
             $table->index('profile_id','order_profile_id_idx');
-            $table->foreign('profile_id','order_profile_id_fk')->on('profiles')->references('id');
+            $table->foreign('profile_id','order_profile_id_fk')->on('profiles')->references('id')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
             $table->softDeletes();

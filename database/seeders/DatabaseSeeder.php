@@ -20,19 +20,39 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Role::factory('3')->create();
-        User::factory('50')->create();
-        Profile::factory('28')->create();
-        DeliveryType::factory('2')->create();
-        OrderState::factory('4')->create();
-        Product::factory('42')->create();
-        Order::factory('26')->create();
-        OrderProduct::factory('20')->create();
+
+
+
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+         \App\Models\Role::factory()->create([
+             'id' => '1',
+             'name' => 'user',
+         ]);
+         \App\Models\Role::factory()->create([
+             'id' => '2',
+             'name' => 'admin',
+         ]);
+         \App\Models\DeliveryType::factory()->create([
+             'id' => '1',
+             'name' => 'Самовывоз',
+         ]);
+         \App\Models\DeliveryType::factory()->create([
+             'id' => '2',
+             'name' => 'Доставка',
+         ]);
+         \App\Models\OrderState::factory()->create([
+             'id' => '1',
+             'name' => 'Новый',
+         ]);
+         \App\Models\OrderState::factory()->create([
+             'id' => '2',
+             'name' => 'В сборке',
+         ]);
+         \App\Models\OrderState::factory()->create([
+             'id' => '3',
+             'name' => 'В доставке',
+         ]);
+
     }
 }
